@@ -1,4 +1,4 @@
-# Kubos System API
+# Kubos/Cube-OS System API
 
 Helper API for performing various general system actions:
 
