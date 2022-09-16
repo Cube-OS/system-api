@@ -6,10 +6,7 @@ edition = "2018"
 
 [dependencies]
 failure = "0.1.2"
-# cubeos-error = { git = "ssh://git@github.com/Cube-OS/cubeos-error"}
-cubeos-error = { path = "../cubeos-error"}
-# log4rs = "0.8.3"
-# log4rs-syslog = "3.0"
+cubeos-error = { git = "ssh://git@github.com/Cube-OS/cubeos-error"}
 syslog = "^6.0.1"
 log = "^0.4.8"
 serde = "1.0"
