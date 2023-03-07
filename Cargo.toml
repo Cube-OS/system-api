@@ -11,7 +11,7 @@ syslog = "^6.0.1"
 log = "^0.4.8"
 serde = "1.0"
 serde_derive = "1.0"
-toml = "0.4"
+toml = "0.7"
 
 [dev-dependencies]
 tempfile = "3"
