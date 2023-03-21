@@ -18,8 +18,9 @@
 //! Common structure and functions for setting up service logging
 //!
 
-use cubeos_error::*;
+// use cubeos_service::{Error,Result};
 use log::LevelFilter;
+use failure::*;
 // use syslog::{BasicLogger, Facility, Formatter3164};
 // use log4rs::append::console::ConsoleAppender;
 // use log4rs::config::Config;
@@ -29,10 +30,10 @@ use log::LevelFilter;
 
 /// Initialise logging for the service
 /// All messages will be routed to syslog
-pub fn init() -> Result<()> {
+pub fn init() -> Result<(),Error> {
     match syslog::init(syslog::Facility::LOG_SYSLOG, LevelFilter::Info, None) {
         Ok(()) => Ok(()),
-        Err(e) => Err(Error::from(e)),
+        Err(e) => Err(format_err!("Failed to init syslog:{}",e)),
     }
 }
 
