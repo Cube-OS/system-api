@@ -21,6 +21,7 @@
 // use cubeos_service::{Error,Result};
 use log::LevelFilter;
 use failure::*;
+// use std::io::Write;
 // use syslog::{BasicLogger, Facility, Formatter3164};
 // use log4rs::append::console::ConsoleAppender;
 // use log4rs::config::Config;
@@ -30,12 +31,26 @@ use failure::*;
 
 /// Initialise logging for the service
 /// All messages will be routed to syslog
+/// Syslog
 pub fn init() -> Result<(),Error> {
-    match syslog::init(syslog::Facility::LOG_SYSLOG, LevelFilter::Info, None) {
+    match syslog::init(syslog::Facility::LOG_DAEMON, LevelFilter::Info, None) {
         Ok(()) => Ok(()),
         Err(e) => Err(format_err!("Failed to init syslog:{}",e)),
     }
 }
+
+// Alternative logging implementation to print to console
+// pub fn init() -> Result<(), Error> {
+//     // Initialize the logger
+//     env_logger::Builder::new()
+//         .format(|buf, record| {
+//             writeln!(buf, "[{}]: {}", record.level(), record.args())
+//         })
+//         .filter(None, LevelFilter::Info)
+//         .init();
+
+//     Ok(())
+// }
 
 // /// Initialize logging for the service
 // /// All messages will be routed to syslog and optionally echoed to the console
