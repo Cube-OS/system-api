@@ -1,8 +1,9 @@
 [package]
 name = "kubos-system"
-version = "0.1.0"
-authors = ["Marshall Culpepper <marshall@kubos.com>"]
+version = "0.2.0"
+authors = ["Marshall Culpepper <marshall@kubos.com>, Patrick Oppel <patrick.oppel@sydney.edu.au"]
 edition = "2018"
+repository = "https://github.com/Cube-OS/kubos-system"
 
 [dependencies]
 failure = "0.1.2"
